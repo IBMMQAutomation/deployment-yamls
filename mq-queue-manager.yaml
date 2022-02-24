@@ -16,8 +16,9 @@ spec:
           name: qm-mqsc
           items:
             - qm.mqsc
-      queueManager:
-        type: ephemeral
+    availability:
+      type: SingleInstance
+      updateStrategy: RollingUpdate
   version: 9.2.4.0-r1
   web:
     enabled: true
