@@ -2,7 +2,6 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: quickstart-ext-conn-traffic
-  namespace: mq
 spec:
   host: ext2e-conn.chl.mq.ibm.com
   to:
