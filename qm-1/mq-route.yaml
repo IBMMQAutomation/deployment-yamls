@@ -6,7 +6,7 @@ spec:
   host: ext2e-conn.chl.mq.ibm.com
   to:
     kind: Service
-    name: mq-tls-ibm-mq
+    name: qm-1-ibm-mq
   port:
     targetPort: 1414
   tls:
