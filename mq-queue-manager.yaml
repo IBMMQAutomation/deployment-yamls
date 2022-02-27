@@ -21,3 +21,13 @@ spec:
   version: 9.2.4.0-r1
   web:
     enabled: true
+  # template:
+  #   pod:
+  #     containers:
+  #       - env:
+  #         - name: TEST_SECRET_USERNAME
+  #           valueFrom:
+  #             secretKeyRef:
+  #               name: git-credentials
+  #               key: username
+  #         name: qmgr
