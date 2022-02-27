@@ -1,0 +1,33 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: qm2
+spec:
+  license:
+    accept: true
+    license: L-RJON-BUVMQX
+    use: NonProduction
+  queueManager:
+    image: image-registry.openshift-image-registry.svc:5000/mq/pipeline-mq:v1
+    name: QUICKSTART
+    mqsc:
+      - configMap:
+          name: mqsc-configmap-test
+          items:
+            - config.mqsc
+    availability:
+      type: SingleInstance
+      updateStrategy: RollingUpdate
+  version: 9.2.4.0-r1
+  web:
+    enabled: true
+  # template:
+  #   pod:
+  #     containers:
+  #       - env:
+  #         - name: TEST_SECRET_USERNAME
+  #           valueFrom:
+  #             secretKeyRef:
+  #               name: git-credentials
+  #               key: username
+  #         name: qmgr
