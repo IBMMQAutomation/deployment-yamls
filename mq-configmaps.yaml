@@ -1,0 +1,31 @@
+---
+# Source: base/templates/configmap-ini.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qm-ini
+  namespace: mq
+data:
+  qm.ini: |-
+    LogDefaults:
+       LogPrimaryFiles=3
+       LogSecondaryFiles=2
+       LogFilePages=4096
+       LogType=CIRCULAR
+       LogBufferPages=0
+       LogDefaultPath=/var/mqm/log
+---
+# Source: base/templates/configmap-mqsc.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qm-mqsc
+  namespace: mq
+data:
+  qm.mqsc: "DEFINE QLOCAL('IN') REPLACE \nDEFINE CHANNEL(EXT.CONN) CHLTYPE(SVRCONN)
+    TRPTYPE(TCP) SSLCAUTH(OPTIONAL) SSLCIPH('ANY_TLS12_OR_HIGHER')\nSET CHLAUTH(EXT.CONN)
+    TYPE(BLOCKUSER) USERLIST('nobody') ACTION(ADD)"
+  test.mqsc: |-
+    DEFINE QLOCAL(test-queue) REPLACE DEFPSIST(YES)
+    DEFINE CHANNEL(EXT.CONN) CHLTYPE(SVRCONN) TRPTYPE(TCP) SSLCAUTH(OPTIONAL) SSLCIPH('ANY_TLS12_OR_HIGHER')
+    SET CHLAUTH(EXT.CONN) TYPE(BLOCKUSER) USERLIST('nobody') ACTION(ADD)
