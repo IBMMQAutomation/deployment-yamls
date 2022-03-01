@@ -12,9 +12,9 @@ spec:
     name: QUICKSTART
     mqsc:
       - configMap:
-          name: mqsc-configmap-test
+          name: qm-mqsc
           items:
-            - config.mqsc
+            - test.mqsc
     availability:
       type: SingleInstance
       updateStrategy: RollingUpdate
