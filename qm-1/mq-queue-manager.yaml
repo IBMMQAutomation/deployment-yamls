@@ -12,22 +12,12 @@ spec:
     name: QUICKSTART
     mqsc:
       - configMap:
-          name: mqsc-configmap-test
+          name: qm-mqsc
           items:
-            - config.mqsc
+            - qm.mqsc
     availability:
       type: SingleInstance
       updateStrategy: RollingUpdate
   version: 9.2.4.0-r1
   web:
     enabled: true
-  # template:
-  #   pod:
-  #     containers:
-  #       - env:
-  #         - name: TEST_SECRET_USERNAME
-  #           valueFrom:
-  #             secretKeyRef:
-  #               name: git-credentials
-  #               key: username
-  #         name: qmgr
