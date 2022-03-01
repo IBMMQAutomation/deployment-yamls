@@ -3,7 +3,8 @@ kind: Route
 metadata:
   name: qm1-ext-conn-traffic
 spec:
-  host: ext2e-conn.chl.mq.ibm.com
+# EXT.CONN.ROUTE
+  host: ext2e-conn2e-route.chl.mq.ibm.com
   to:
     kind: Service
     name: qm-1-ibm-mq
